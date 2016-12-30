@@ -1,0 +1,12 @@
+{
+  "mainMenu": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About"
+  },
+  "content": {
+    "header": "Hello World",
+    "text": "Lorem Ipsum filibaba",
+    "footer": "Copycat 2017"
+  }
+}

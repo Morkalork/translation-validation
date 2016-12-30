@@ -1,0 +1,12 @@
+{
+  "mainMenu": {
+    "home": "Hem",
+    "products": "Produkter",
+    "about": "Om oss"
+  },
+  "content": {
+    "header": "Hej Värld",
+    "text": "Lorem Ipsum filibaba",
+    "footer": "Kopieringshelvete 2017"
+  }
+}
