@@ -1,0 +1,23 @@
+{
+  "name": "translation-validation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Morkalork/translation-validation.git"
+  },
+  "keywords": [
+    "translation",
+    "i18n"
+  ],
+  "author": "Magnus Ferm <maffelu@gmail.com> (http://maffelu.net)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Morkalork/translation-validation/issues"
+  },
+  "homepage": "https://github.com/Morkalork/translation-validation#readme"
+}
