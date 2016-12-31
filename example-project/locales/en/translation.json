@@ -7,6 +7,10 @@
   "content": {
     "header": "Hello World",
     "text": "Lorem Ipsum filibaba",
-    "footer": "Copycat 2017"
+    "footer": "Copycat 2017",
+    "secret": {
+      "power": "I can eat more than anyone else",
+      "weakness": "Afterwards, I don't feel very well and cannot move"
+    }
   }
 }

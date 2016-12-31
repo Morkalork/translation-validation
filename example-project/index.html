@@ -28,38 +28,7 @@
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/4.1.4/i18next.min.js"></script>
-<script>
-  function load(lng) {
-    fetch("locales/" + lng + "/translation.json")
-      .then(function (result) {
-        result.json()
-          .then(function (json) {
-            var resources = {};
-            resources[lng] = {
-              translation: json
-            };
-            i18next.init({
-              lng: lng,
-              resources: resources
-            }, function (e, t) {
-              document.getElementById("homeLink").innerHTML = i18next.t("mainMenu.home");
-              document.getElementById("productsLink").innerHTML = i18next.t("mainMenu.products");
-              document.getElementById("header").innerHTML = i18next.t("content.header");
-              document.getElementById("text").innerHTML = i18next.t("content.text");
-            });
-          });
-      })
-      .catch(function () {
-        alert("Something went f***g wrong, please reload ze page");
-      });
-  }
-
-  load("en");
-
-  document.getElementById("lang").addEventListener("change", function () {
-    var val = document.getElementById("lang").value;
-    load(val);
-  });
-</script>
+<script src="js/loadTranslation.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

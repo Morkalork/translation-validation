@@ -7,6 +7,10 @@
   "content": {
     "header": "Hej Värld",
     "text": "Lorem Ipsum filibaba",
-    "footer": "Kopieringshelvete 2017"
+    "footer": "Kopieringshelvete 2017",
+    "secret": {
+      "power": "Jag kan äta mer än någon annan",
+      "weakness": "Efteråt så kan jag inte röra mig och mår dåligt"
+    }
   }
 }
