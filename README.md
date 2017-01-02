@@ -1,9 +1,23 @@
 # Translation Validation
 A tool to check translation usage in a project. Given a json file with keys you can use it to search a chunk of files for usage.
 
-Example:
+**Installation:**
+```
+npm install --save-dev translation-validation
+```
+ 
+**Usage:**
+```
+translation-validation <FILE-TO-TRANSLATION> <PATH-TO-SOURCE> <SKIP-REGEX>
+// ex:
+translation-validation example-project/locales/en/translation.json example-project/ example-project/locales
+```
+The *PATH-TO-SOURCE* can be a comma separated list (with no spaces in the separator).
+
+If you have a translation file like the one below then this module will look for usage of the keys in your code. It will concatenate the keys with dots.
 
 **Translation.json:**
+
 ```json
 {
   "mainMenu": {
@@ -13,12 +27,24 @@ Example:
   }
 }
 ```
-Given a translation file containing this json data you want to know if any of the keys are unused in your project. This package let's you search your project
- for usage like this:
- 
-**Usage:**
+Given this translation file this module will search for the following keys:
+ * mainMenu.home
+ * mainMenu.products
+ * mainMenu.about
+
+**Development:**
+
+If you've downloaded the code from GitHub you will have to install the node modules first before you can run test it.
 ```
-translation-validation PATH-TO-TRANSLATION PATH-TO-SOURCE SKIP-REGEX
-// ex:
-translation-validation example-project/locales/en/translation.json example-project/ example-project/locales
+npm install 
+```
+
+To run the test, simply run the test command:
+```
+npm run test
+```
+
+To run the example, run the following command:
+```
+npm run example 
 ```

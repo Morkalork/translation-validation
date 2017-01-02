@@ -1,7 +1,7 @@
 {
   "name": "translation-validation",
   "version": "1.0.0",
-  "description": "",
+  "description": "Translation Validation lets you search your source code for used/unused translation strings",
   "main": "index.js",
   "scripts": {
     "testBase": "tape src/*-test.js",
