@@ -1,7 +1,7 @@
 {
-  "name": "translation-validation",
+  "name": "transval",
   "version": "1.0.0",
-  "description": "Translation Validation lets you search your source code for used/unused translation strings",
+  "description": "transval lets you search your source code for used/unused translation strings",
   "main": "index.js",
   "scripts": {
     "testBase": "tape src/*-test.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Morkalork/translation-validation.git"
+    "url": "git+https://github.com/Morkalork/transval.git"
   },
   "keywords": [
     "translation",
@@ -19,9 +19,9 @@
   "author": "Magnus Ferm <maffelu@gmail.com> (http://maffelu.net)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Morkalork/translation-validation/issues"
+    "url": "https://github.com/Morkalork/transval/issues"
   },
-  "homepage": "https://github.com/Morkalork/translation-validation#readme",
+  "homepage": "https://github.com/Morkalork/transval#readme",
   "devDependencies": {
     "colors": "^1.1.2",
     "proxyquire": "^1.7.10",

@@ -1,16 +1,16 @@
-# Translation Validation
+# transval
 A tool to check translation usage in a project. Given a json file with keys you can use it to search a chunk of files for usage.
 
 **Installation:**
 ```
-npm install --save-dev translation-validation
+npm install --save-dev transval
 ```
  
 **Usage:**
 ```
-translation-validation <FILE-TO-TRANSLATION> <PATH-TO-SOURCE> <SKIP-REGEX>
+transval <FILE-TO-TRANSLATION> <PATH-TO-SOURCE> <SKIP-REGEX>
 // ex:
-translation-validation example-project/locales/en/translation.json example-project/ example-project/locales
+transval example-project/locales/en/translation.json example-project/ example-project/locales
 ```
 The *PATH-TO-SOURCE* can be a comma separated list (with no spaces in the separator).
 
