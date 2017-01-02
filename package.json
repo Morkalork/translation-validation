@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tape src/*-test.js | tap-spec",
+    "testBase": "tape src/*-test.js",
+    "test": "npm run testBase | tap-spec",
     "example": "node index.js example-project/locales/en/translation.json example-project/ example-project/locales"
   },
   "repository": {
