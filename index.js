@@ -1,11 +1,30 @@
 const checkFiles = require('./src/checkFiles');
 
-const [, , file, dirArgs, filesToSkip] = process.argv;
+module.exports = {
+  init: ([, , file, dirArgs, filesToSkip]) => {
+    console.log('Init!');
+    if(!file) {
+      console.log("Error:".bgRed.bold);
+      console.log("You did not pass in a translation file to check");
+      return;
+    }
 
-// Get the data correct
-const json = require(`./${file}`);
-const dirs = dirArgs.split(',');
-const skipRegex = new RegExp(filesToSkip, 'gi');
+    if(!dirArgs) {
+      console.log("Error".bgRed.bold);
+      console.log("You did not pass in a source directory to check for occurences in!");
+      return;
+    }
 
-// LAUNCH!
-checkFiles(json, dirs, skipRegex);
+    // Get the data correct
+    const json = require(`./${file}`);
+    const dirs = dirArgs.split(',');
+    const skipRegex = filesToSkip ? new RegExp(filesToSkip, 'gi') : null;
+
+    // LAUNCH!
+    try {
+    checkFiles(json, dirs, skipRegex);
+    } catch(err) {
+      console.log('ERROR: ', err);
+    }
+  }
+}
