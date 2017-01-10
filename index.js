@@ -2,7 +2,6 @@ import checkFiles from './src/checkFiles';
 
 module.exports = {
   init: ([, , file, dirArgs, filesToSkip]) => {
-    console.log('Init!');
     if(!file) {
       console.log("Error:".bgRed.bold);
       console.log("You did not pass in a translation file to check");

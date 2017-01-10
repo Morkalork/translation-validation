@@ -200,7 +200,6 @@ var fs = require('fs');
 var colors = require('colors');
 
 var checkFiles = (function (json, dirs, skipRegex) {
-  console.log(json);
   if (json === null || json === undefined) {
     throw new Error("JSON is null");
   }
@@ -211,15 +210,12 @@ var checkFiles = (function (json, dirs, skipRegex) {
 
   var sourceFiles = getAllFiles(dirs, skipRegex);
   var foundKeys = [];
-  console.log(getJsonKeys);
   var keys = getJsonKeys(json);
 
-  console.log(keys);
   if (keys.length <= 0) {
     throw new Error('No keys were found in the translation file');
   }
 
-  console.log('Processing...');
   sourceFiles.forEach(function (sourceFile) {
     var output = 'Reading file \'' + sourceFile + '\'';
     var status = ' successfully checked '.green.black.bold;
@@ -274,7 +270,6 @@ module.exports = {
         dirArgs = _ref2[3],
         filesToSkip = _ref2[4];
 
-    console.log('Init!');
     if (!file) {
       console.log("Error:".bgRed.bold);
       console.log("You did not pass in a translation file to check");
@@ -288,7 +283,7 @@ module.exports = {
     }
 
     // Get the data correct
-    var json = require('./' + file);
+    var json = require("./" + file);
     var dirs = dirArgs.split(',');
     var skipRegex = filesToSkip ? new RegExp(filesToSkip, 'gi') : null;
 

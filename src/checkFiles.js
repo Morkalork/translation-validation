@@ -5,7 +5,6 @@ import getFilesRecursively from './getFilesRecursively';
 import getJsonKeys from './getJsonKeys';
 
 export default (json, dirs, skipRegex) => {
-  console.log(json);
   if (json === null || json === undefined) {
     throw new Error("JSON is null");
   }
@@ -16,17 +15,14 @@ export default (json, dirs, skipRegex) => {
 
   const sourceFiles = getAllFiles(dirs, skipRegex);
   const foundKeys = [];
-  console.log(getJsonKeys);
   const keys = getJsonKeys(json);
 
-console.log(keys);
   if (keys.length <= 0) {
     throw new Error('No keys were found in the translation file');
   }
 
-  console.log('Processing...');
-  sourceFiles.forEach((sourceFile) => {
-    let output = `Reading file '${sourceFile}'`;
+  sourceFiles.forEach((sourceFile) => {   
+    const output = `Reading file '${sourceFile}'`;
     let status = ' successfully checked '.green.black.bold;
     try {
       const data = fs.readFileSync(sourceFile, 'utf8');

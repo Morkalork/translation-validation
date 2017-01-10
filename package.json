@@ -10,7 +10,7 @@
     "build": "rollup -c",
     "testBase": "babel-tape-runner src/*-test.js",
     "test": "npm run testBase | tap-spec",
-    "example": "node index.js example-project/locales/en/translation.json example-project/ example-project/locales"
+    "example": "npm run build && node bin/transval.bin.js example-project/locales/en/translation.json example-project/ example-project/locales"
   },
   "repository": {
     "type": "git",
