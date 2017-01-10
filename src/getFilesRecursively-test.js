@@ -1,6 +1,6 @@
-const test = require('tape');
-const sinon = require('sinon');
-const proxyquire = require('proxyquire');
+import test from 'tape';
+import sinon from 'sinon';
+import proxyquire from 'proxyquire';
 
 const setup = (readDirStub = sinon.stub(), statSyncStub = sinon.stub()) => {
   return proxyquire('./getFilesRecursively', {
@@ -8,7 +8,7 @@ const setup = (readDirStub = sinon.stub(), statSyncStub = sinon.stub()) => {
       readdirSync: readDirStub,
       statSync: statSyncStub
     }
-  });
+  }).default;
 };
 
 test('getFilesRecursively throws if dirs is null or invalid', (assert) => {
@@ -23,7 +23,7 @@ test('getFilesRecursively returns empty file list if skipRegex invalidates dir',
   const getFilesRecursively = setup();
   const dirs = 'foo';
   const skipRegex = /foo/;
-  result = getFilesRecursively(dirs, skipRegex);
+  const result = getFilesRecursively(dirs, skipRegex);
   assert.equal(result.length, 0, 'No files found');
   assert.end();
 });
@@ -48,7 +48,7 @@ test('getFilesRecursively can find two files in different levels of nesting', (a
   statSyncStub.withArgs(validDir2).returns({isDirectory: () => true});
 
   const getFilesRecursively = setup(readDirStub, statSyncStub);
-  result = getFilesRecursively(validDir1);
+  const result = getFilesRecursively(validDir1);
   assert.equal(result.length, 2, '2 files were found');
   assert.equal(result[0], file2FullPath, 'file2 was found');
   assert.equal(result[1], file1FullPath, 'file1 was found');

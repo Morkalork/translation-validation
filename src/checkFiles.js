@@ -1,9 +1,11 @@
 const fs = require('fs');
-const getFilesRecursively = require('./getFilesRecursively');
-const getJsonKeys = require('./getJsonKeys');
 const colors = require('colors');
 
-const checkFiles = (json, dirs, skipRegex) => {
+import getFilesRecursively from './getFilesRecursively';
+import getJsonKeys from './getJsonKeys';
+
+export default (json, dirs, skipRegex) => {
+  console.log(json);
   if (json === null || json === undefined) {
     throw new Error("JSON is null");
   }
@@ -14,8 +16,10 @@ const checkFiles = (json, dirs, skipRegex) => {
 
   const sourceFiles = getAllFiles(dirs, skipRegex);
   const foundKeys = [];
+  console.log(getJsonKeys);
   const keys = getJsonKeys(json);
 
+console.log(keys);
   if (keys.length <= 0) {
     throw new Error('No keys were found in the translation file');
   }
@@ -63,5 +67,3 @@ const getAllFiles = (dirs, skipRegex) => {
 
   return files;
 };
-
-module.exports = checkFiles;

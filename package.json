@@ -1,13 +1,14 @@
 {
   "name": "transval",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "transval lets you search your source code for used/unused translation strings",
   "main": "index.js",
   "bin": {
     "transval": "bin/transval.bin.js"
   },
   "scripts": {
-    "testBase": "tape src/*-test.js",
+    "build": "rollup -c",
+    "testBase": "babel-tape-runner src/*-test.js",
     "test": "npm run testBase | tap-spec",
     "example": "node index.js example-project/locales/en/translation.json example-project/ example-project/locales"
   },
@@ -26,7 +27,13 @@
   },
   "homepage": "https://github.com/Morkalork/transval#readme",
   "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-tape-runner": "^2.0.1",
     "proxyquire": "^1.7.10",
+    "rollup": "^0.41.1",
+    "rollup-plugin-babel": "^2.7.1",
     "sinon": "^1.17.7",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.3"

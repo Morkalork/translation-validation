@@ -30,4 +30,4 @@ const getFilesRecursively = (dir, skipRegex, fileList = []) => {
   return fileList;
 };
 
-module.exports = getFilesRecursively;
+export default getFilesRecursively;

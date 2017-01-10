@@ -1,4 +1,4 @@
-const checkFiles = require('./src/checkFiles');
+import checkFiles from './src/checkFiles';
 
 module.exports = {
   init: ([, , file, dirArgs, filesToSkip]) => {

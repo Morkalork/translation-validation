@@ -1,5 +1,5 @@
-const test = require('tape');
-const getJsonKeys = require('./getJsonKeys');
+import test from 'tape';
+import getJsonKeys from './getJsonKeys';
 
 test('getJsonKeys should throw if json is not passed as a parameter', (assert) => {
   const expectedErrorMessage = /JSON is null/;

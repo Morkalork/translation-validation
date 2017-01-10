@@ -1,6 +1,6 @@
-const test = require('tape');
-const sinon = require('sinon');
-const proxyquire = require('proxyquire');
+import test from 'tape';
+import sinon from 'sinon';
+import proxyquire from 'proxyquire';
 
 const setup = (readFileSyncStub = sinon.stub(),
                getFilesRecursivelyStub = sinon.stub(),
@@ -9,9 +9,13 @@ const setup = (readFileSyncStub = sinon.stub(),
     'fs': {
       readFileSync: readFileSyncStub
     },
-    './getFilesRecursively': getFilesRecursivelyStub,
-    './getJsonKeys': getJsonKeyStub
-  });
+    './getFilesRecursively': {
+      default: getFilesRecursivelyStub
+    },
+    './getJsonKeys': {
+      default: getJsonKeyStub
+    }
+  }).default;
 };
 
 test('checkFiles should throw on missing json', (assert) => {

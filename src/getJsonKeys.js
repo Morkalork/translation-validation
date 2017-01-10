@@ -52,4 +52,4 @@ const getJsonKeys = (json, nodeName = '') => {
   return result;
 };
 
-module.exports = getJsonKeys;
+export default getJsonKeys;

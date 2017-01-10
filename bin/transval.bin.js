@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
-var app = require('../index.js');
+var app = require('../bundle.js');
 app.init(process.argv);
