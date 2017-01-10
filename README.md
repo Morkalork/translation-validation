@@ -1,12 +1,14 @@
 # transval
 A tool to check translation usage in a project. Given a json file with keys you can use it to search a chunk of files for usage.
 
-**Installation:**
+![A screenshot of the transval output](assets/screenshot.png?raw=true "A screenshot of the transval output")
+
+## Installation:
 ```
 npm install --save-dev transval
 ```
  
-**Usage:**
+## Usage:
 ```
 transval <FILE-TO-TRANSLATION> <PATH-TO-SOURCE> <SKIP-REGEX>
 // ex:
@@ -16,7 +18,7 @@ The *PATH-TO-SOURCE* can be a comma separated list (with no spaces in the separa
 
 If you have a translation file like the one below then this module will look for usage of the keys in your code. It will concatenate the keys with dots.
 
-**Translation.json:**
+## Translation.json:
 
 ```json
 {
@@ -32,11 +34,16 @@ Given this translation file this module will search for the following keys:
  * mainMenu.products
  * mainMenu.about
 
-**Development:**
+## Development:
 
 If you've downloaded the code from GitHub you will have to install the node modules first before you can run test it.
 ```
 npm install 
+```
+
+To build the project:
+```
+npm run build
 ```
 
 To run the test, simply run the test command:
