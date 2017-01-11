@@ -1,6 +1,6 @@
 {
   "name": "transval",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "transval lets you search your source code for used/unused translation strings",
   "main": "index.js",
   "bin": {
