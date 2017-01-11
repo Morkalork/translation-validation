@@ -304,20 +304,13 @@ module.exports = {
 
     // Get the data correct
     var json = null;
-    var fileName2 = null;
+    var fullPath = __dirname + '/' + file;
 
     try {
-      json = require(file); // Is the user honest with the path?
+      json = require(fullPath); // Is the user honest with the path?
     } catch (e) {
-      fileName2 = './' + file;
-      console.log('Failed to load \'' + file + '\', trying \'' + fileName2 + '\'');
-
-      try {
-        json = require(fileName2); // Try with proper prefix!
-      } catch (e2) {
-        error$1('Failed to load either \'' + file + '\' or \'' + fileName2 + '\' ', e2);
-        return;
-      }
+      error$1('Failed to load file \'' + fullPath + '\' ', e);
+      return;
     }
 
     var dirs = dirArgs.split(',');
