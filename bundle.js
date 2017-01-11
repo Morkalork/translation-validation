@@ -306,7 +306,7 @@ module.exports = {
     var json = null;
 
     try {
-      json = require('./' + file);
+      json = require(file);
     } catch (e) {
       error$1('Failed to load file \'' + file + '\' ', e);
       return;
