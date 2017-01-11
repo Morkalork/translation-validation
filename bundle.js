@@ -2,6 +2,7 @@
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
+var fs = _interopDefault(require('fs'));
 var colors = _interopDefault(require('colors'));
 
 var fs$1 = require('fs');
@@ -199,9 +200,6 @@ var getJsonKeys = function getJsonKeys(json) {
 
   return result;
 };
-
-var fs = require('fs');
-var colors$1 = require('colors');
 
 var checkFiles = (function (json, dirs, skipRegex) {
   if (json === null || json === undefined) {

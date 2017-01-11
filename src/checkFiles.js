@@ -1,6 +1,5 @@
-const fs = require('fs');
-const colors = require('colors');
-
+import fs from 'fs';
+import colors from 'colors';
 import getFilesRecursively from './getFilesRecursively';
 import getJsonKeys from './getJsonKeys';
 
