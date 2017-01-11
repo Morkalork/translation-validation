@@ -304,14 +304,18 @@ module.exports = {
 
     // Get the data correct
     var json = null;
+    var fileName2 = null;
 
     try {
       json = require(file); // Is the user honest with the path?
     } catch (e) {
+      fileName2 = './' + file;
+      console.log('Failed to load \'' + file + '\', trying \'' + fileName2 + '\'');
+
       try {
-        json = require('./' + file); // Try with proper prefix!
+        json = require(fileName2); // Try with proper prefix!
       } catch (e2) {
-        error$1('Failed to load file \'' + file + '\' ', e2);
+        error$1('Failed to load either \'' + file + '\' or \'' + fileName2 + '\' ', e2);
         return;
       }
     }
