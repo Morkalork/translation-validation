@@ -1,21 +1,34 @@
 import checkFiles from './src/checkFiles';
+import colors from 'colors';
+import error from './src/error';
 
 module.exports = {
   init: ([, , file, dirArgs, filesToSkip]) => {
+    console.log('');
+    console.log('Transval running'.zebra.bold);
+    console.log('-------------------------------'.zebra.bold);
+    console.log('');
+
     if(!file) {
-      console.log("Error:".bgRed.bold);
-      console.log("You did not pass in a translation file to check");
+      error("You did not pass in a translation file to check");
       return;
     }
 
     if(!dirArgs) {
-      console.log("Error".bgRed.bold);
-      console.log("You did not pass in a source directory to check for occurences in!");
+      error("You did not pass in a source directory to check for occurrences in!");
       return;
     }
 
     // Get the data correct
-    const json = require(`./${file}`);
+    let json = null;
+
+    try {
+      json = require(`./${file}`);
+    } catch (e) {
+      error(`Failed to load file '${file}' `, e);
+      return;
+    }
+
     const dirs = dirArgs.split(',');
     const skipRegex = filesToSkip ? new RegExp(filesToSkip, 'gi') : null;
 

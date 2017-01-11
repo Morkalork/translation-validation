@@ -1,5 +1,9 @@
 'use strict';
 
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var colors = _interopDefault(require('colors'));
+
 var fs$1 = require('fs');
 
 /**
@@ -197,7 +201,7 @@ var getJsonKeys = function getJsonKeys(json) {
 };
 
 var fs = require('fs');
-var colors = require('colors');
+var colors$1 = require('colors');
 
 var checkFiles = (function (json, dirs, skipRegex) {
   if (json === null || json === undefined) {
@@ -235,13 +239,14 @@ var checkFiles = (function (json, dirs, skipRegex) {
 
     console.log(output + ': ' + status);
   });
-  console.log('Processing complete!');
+
+  console.log('');
+  console.log('Processing complete! ' + sourceFiles.length + ' source files checked!');
 
   var notFoundKeys = keys.filter(function (key) {
     return foundKeys.indexOf(key) === -1;
   });
 
-  console.log('');
   console.log('');
   console.log('RESULT:');
   console.log('-----------------');
@@ -263,6 +268,18 @@ var getAllFiles = function getAllFiles(dirs, skipRegex) {
   return files;
 };
 
+var error$1 = (function (text, e) {
+  console.log('');
+  console.error('ERROR:'.bgRed.bold);
+  console.error(text);
+
+  if (e) {
+    console.log('');
+    console.error('ADDITIONAL INFORMATION:'.bgRed.bold);
+    console.log(e);
+  }
+});
+
 module.exports = {
   init: function init(_ref) {
     var _ref2 = slicedToArray(_ref, 5),
@@ -270,20 +287,31 @@ module.exports = {
         dirArgs = _ref2[3],
         filesToSkip = _ref2[4];
 
+    console.log('');
+    console.log('Transval running'.zebra.bold);
+    console.log('-------------------------------'.zebra.bold);
+    console.log('');
+
     if (!file) {
-      console.log("Error:".bgRed.bold);
-      console.log("You did not pass in a translation file to check");
+      error$1("You did not pass in a translation file to check");
       return;
     }
 
     if (!dirArgs) {
-      console.log("Error".bgRed.bold);
-      console.log("You did not pass in a source directory to check for occurences in!");
+      error$1("You did not pass in a source directory to check for occurrences in!");
       return;
     }
 
     // Get the data correct
-    var json = require("./" + file);
+    var json = null;
+
+    try {
+      json = require('./' + file);
+    } catch (e) {
+      error$1('Failed to load file \'' + file + '\' ', e);
+      return;
+    }
+
     var dirs = dirArgs.split(',');
     var skipRegex = filesToSkip ? new RegExp(filesToSkip, 'gi') : null;
 

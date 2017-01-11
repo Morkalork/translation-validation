@@ -21,7 +21,7 @@ export default (json, dirs, skipRegex) => {
     throw new Error('No keys were found in the translation file');
   }
 
-  sourceFiles.forEach((sourceFile) => {   
+  sourceFiles.forEach((sourceFile) => {
     const output = `Reading file '${sourceFile}'`;
     let status = ' successfully checked '.green.black.bold;
     try {
@@ -38,11 +38,12 @@ export default (json, dirs, skipRegex) => {
 
     console.log(`${output}: ${status}`);
   });
-  console.log('Processing complete!');
+
+  console.log('');
+  console.log(`Processing complete! ${sourceFiles.length} source files checked!`);
 
   const notFoundKeys = keys.filter((key) => foundKeys.indexOf(key) === -1);
 
-  console.log('');
   console.log('');
   console.log('RESULT:');
   console.log('-----------------');
