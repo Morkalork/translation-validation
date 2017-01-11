@@ -306,10 +306,14 @@ module.exports = {
     var json = null;
 
     try {
-      json = require(file);
+      json = require(file); // Is the user honest with the path?
     } catch (e) {
-      error$1('Failed to load file \'' + file + '\' ', e);
-      return;
+      try {
+        json = require('./' + file); // Try with proper prefix!
+      } catch (e2) {
+        error$1('Failed to load file \'' + file + '\' ', e2);
+        return;
+      }
     }
 
     var dirs = dirArgs.split(',');

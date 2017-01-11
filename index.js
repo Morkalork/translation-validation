@@ -23,10 +23,14 @@ module.exports = {
     let json = null;
 
     try {
-      json = require(file);
-    } catch (e) {
-      error(`Failed to load file '${file}' `, e);
-      return;
+      json = require(file); // Is the user honest with the path?
+    } catch(e) {
+      try {
+        json = require(`./${file}`); // Try with proper prefix!
+      } catch(e2) {
+        error(`Failed to load file '${file}' `, e2);
+        return;
+      }
     }
 
     const dirs = dirArgs.split(',');
