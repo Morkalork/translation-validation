@@ -5,8 +5,6 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var fs = _interopDefault(require('fs'));
 var colors = _interopDefault(require('colors'));
 
-var fs$1 = require('fs');
-
 /**
  * Gets all files from a directory recursively
  * @param dir The dir you want to search for files in
@@ -25,10 +23,10 @@ var getFilesRecursively = function getFilesRecursively(dir, skipRegex) {
     return fileList;
   }
 
-  var files = fs$1.readdirSync(dir);
+  var files = fs.readdirSync(dir);
   files.forEach(function (file) {
     var fileName = dir + file;
-    if (fs$1.statSync(fileName).isDirectory()) {
+    if (fs.statSync(fileName).isDirectory()) {
       var slash = fileName[fileName.length - 1] === '/' ? '' : '/';
       fileList = getFilesRecursively(fileName + slash, skipRegex, fileList);
     } else {
@@ -302,7 +300,8 @@ module.exports = {
 
     // Get the data correct
     var json = null;
-    var fullPath = __dirname + '/' + file;
+    var fullPath = process.cwd() + '/' + file;
+    console.log(fullPath);
 
     try {
       json = require(fullPath); // Is the user honest with the path?

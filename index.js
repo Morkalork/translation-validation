@@ -21,7 +21,7 @@ module.exports = {
 
     // Get the data correct
     let json = null;
-    const fullPath = `${__dirname}/${file}`;
+    const fullPath = `${process.cwd()}/${file}`;
 
     try {
       json = require(fullPath); // Is the user honest with the path?
